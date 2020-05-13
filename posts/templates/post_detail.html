@@ -1,8 +1,13 @@
 <h1>Post Detail:</h1>
 
-{{post.post_title}}
+<h2>{{post.post_title}}</h2>
 
-{{post.date}}
+<h3>{{post.date}}</h3>
 
 {{post.body}}
+
+{{post.likes}}-- like(s)!
+<p>
+<a href='/like/{{post.id}}'>click me to like this post</a>
+</p>
 

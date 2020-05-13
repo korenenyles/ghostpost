@@ -1,5 +1,5 @@
 <h1>Welcome!</h1> 
 
 {%for post in data%}
-    <a href = {% url 'post_detail' id=post.id%}>{{post}}</a>
+    <a href = {% url 'post_detail' id=post.id%}>{{post}}</a> -- {{post.likes}} like(s)!
 {% endfor %}
