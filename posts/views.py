@@ -23,7 +23,14 @@ def add_post(request):
 
 def like_view(request, post_id):
     post = PostItem.objects.get(id=post_id)
-    post.likes += 1
+    post.results +=1
     post.save()
-    
     return HttpResponseRedirect(reverse('post_detail', kwargs={'id': post_id}))
+
+def dislike_view(request, post_id):
+    post = PostItem.objects.get(id = post_id)
+    post.results -= 1
+    post.save()
+    return HttpResponseRedirect(reverse('post_detail', kwargs={'id': post_id}))
+
+
