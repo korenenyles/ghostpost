@@ -1,6 +1,30 @@
-<h1>Welcome!</h1> 
+<h1>GhostPosters!</h1>
+<div>
+{%if form %}<!--Matt Perry for the win!//-->
+<details> <!--suggested from Chris Wilson and Matt Perry //-->
+<summary>Create Boast or Roast</summary>
+<form action="" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Add Post">
+</form>
+</details>
+{% endif%}
+</div>
+<div><p>
+<a href = {% url 'home'%}><button>View All</button></a>
+<a href = {% url 'boast'%}><button>View Boast</button></a>
+<a href = {% url 'roast'%}><button>View Roast</button></a>
+<a href = {% url 'votes'%}><button>View Votes</button></a>
+</p>
+</div>
 
+
+
+<div>
 {%for post in data%}
-    <p><a href = {% url 'post_detail' id=post.id%}>{{post}}</a> 
-    {{post.results}}</p>
+    <p><a href = {% url 'post_detail' id=post.id%}>{{post}}</a>|{{post.date}}|{{post.body}} 
+    {{post.results}} Votes </p>
 {% endfor %}
+</div>
+
